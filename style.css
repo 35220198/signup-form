@@ -1,0 +1,653 @@
+/* ========================================
+   RESET & VARIABLES
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-color: #121212;
+    --container-bg: rgba(30, 30, 35, 0.94);
+
+    --primary-color: #bb86fc;
+    --primary-hover: #a66ae9;
+    --secondary-color: #03dac6;
+
+    --text-primary: #f5f3f7;
+    --text-secondary: #a9a6b0;
+
+    --border-color: rgba(255, 255, 255, 0.08);
+    --input-bg: rgba(0, 0, 0, 0.22);
+
+    --success-color: #03dac6;
+    --danger-color: #ff6b81;
+
+    --shadow-color: rgba(0, 0, 0, 0.45);
+}
+
+
+/* ========================================
+   PAGE BACKGROUND
+======================================== */
+
+body {
+    font-family: "DM Sans", sans-serif;
+
+    /* THE MAIN BACKGROUND COLOR IS PRESERVED */
+    background-color: var(--bg-color);
+
+    min-height: 100vh;
+
+    color: var(--text-primary);
+
+    overflow-x: hidden;
+}
+
+
+.page-wrapper {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px 20px;
+
+    position: relative;
+    z-index: 2;
+}
+
+
+/* BACKGROUND LIGHTING */
+
+.background-shape {
+    position: fixed;
+
+    width: 450px;
+    height: 450px;
+
+    border-radius: 50%;
+
+    filter: blur(100px);
+
+    opacity: 0.12;
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+.shape-one {
+    background-color: var(--primary-color);
+
+    top: -180px;
+    left: -150px;
+}
+
+.shape-two {
+    background-color: var(--secondary-color);
+
+    bottom: -200px;
+    right: -150px;
+}
+
+
+/* ========================================
+   NEWSLETTER CARD
+======================================== */
+
+.signup-container {
+    width: 100%;
+    max-width: 470px;
+
+    padding: 42px;
+
+    text-align: center;
+
+    background-color: var(--container-bg);
+
+    border: 1px solid var(--border-color);
+
+    border-radius: 24px;
+
+    box-shadow:
+        0 30px 80px var(--shadow-color);
+
+    backdrop-filter: blur(20px);
+
+    position: relative;
+
+    animation: cardEntrance 0.7s ease both;
+}
+
+
+@keyframes cardEntrance {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* ========================================
+   BADGE
+======================================== */
+
+.newsletter-badge {
+    display: inline-flex;
+
+    align-items: center;
+    gap: 8px;
+
+    padding: 7px 12px;
+
+    margin-bottom: 24px;
+
+    border: 1px solid
+        rgba(187, 134, 252, 0.2);
+
+    border-radius: 30px;
+
+    background-color:
+        rgba(187, 134, 252, 0.08);
+
+    color: var(--primary-color);
+
+    font-size: 0.7rem;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+.badge-dot {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background-color: var(--secondary-color);
+
+    box-shadow:
+        0 0 10px var(--secondary-color);
+}
+
+
+/* ========================================
+   MAIN ICON
+======================================== */
+
+.icon-container {
+    width: 76px;
+    height: 76px;
+
+    margin: 0 auto 22px;
+
+    display: grid;
+    place-items: center;
+
+    position: relative;
+
+    border-radius: 22px;
+
+    color: var(--primary-color);
+
+    font-size: 2rem;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(187, 134, 252, 0.18),
+            rgba(3, 218, 198, 0.08)
+        );
+
+    border: 1px solid
+        rgba(187, 134, 252, 0.18);
+}
+
+.icon-glow {
+    position: absolute;
+
+    width: 70%;
+    height: 70%;
+
+    border-radius: 50%;
+
+    background-color: var(--primary-color);
+
+    filter: blur(25px);
+
+    opacity: 0.15;
+}
+
+
+/* ========================================
+   CONTENT
+======================================== */
+
+.content-header h1 {
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size: clamp(
+        1.8rem,
+        5vw,
+        2.4rem
+    );
+
+    line-height: 1.1;
+
+    margin-bottom: 14px;
+
+    letter-spacing: -1px;
+}
+
+.content-header p {
+    color: var(--text-secondary);
+
+    font-size: 0.96rem;
+
+    line-height: 1.7;
+
+    margin-bottom: 28px;
+}
+
+
+/* ========================================
+   FORM
+======================================== */
+
+form {
+    width: 100%;
+}
+
+.input-group {
+    position: relative;
+
+    margin-bottom: 8px;
+}
+
+.input-icon {
+    position: absolute;
+
+    top: 50%;
+    left: 17px;
+
+    transform:
+        translateY(-50%);
+
+    color: var(--text-secondary);
+
+    transition: 0.25s ease;
+
+    pointer-events: none;
+}
+
+input {
+    width: 100%;
+
+    padding:
+        15px
+        48px
+        15px
+        48px;
+
+    border-radius: 14px;
+
+    border:
+        1px solid
+        var(--border-color);
+
+    background-color:
+        var(--input-bg);
+
+    color:
+        var(--text-primary);
+
+    font-family: inherit;
+
+    font-size: 0.95rem;
+
+    transition: 0.25s ease;
+}
+
+input::placeholder {
+    color: var(--text-secondary);
+}
+
+input:focus {
+    outline: none;
+
+    border-color:
+        var(--primary-color);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(187, 134, 252, 0.12);
+}
+
+.input-group:focus-within .input-icon {
+    color: var(--primary-color);
+}
+
+
+/* INPUT VALIDATION */
+
+.input-group.valid input {
+    border-color: var(--success-color);
+}
+
+.input-group.invalid input {
+    border-color: var(--danger-color);
+}
+
+
+/* ERROR */
+
+.error-message {
+    min-height: 18px;
+
+    text-align: left;
+
+    color: var(--danger-color);
+
+    font-size: 0.78rem;
+
+    margin-bottom: 8px;
+
+    padding-left: 4px;
+}
+
+
+/* ========================================
+   SUBSCRIBE BUTTON
+======================================== */
+
+button {
+    width: 100%;
+
+    border: none;
+
+    padding: 15px 20px;
+
+    border-radius: 14px;
+
+    background-color:
+        var(--primary-color);
+
+    color: #17131d;
+
+    font-family: inherit;
+
+    font-size: 0.95rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    transition: 0.25s ease;
+
+    box-shadow:
+        0 10px 25px
+        rgba(187, 134, 252, 0.18);
+}
+
+button:hover {
+    background-color:
+        var(--primary-hover);
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 16px 30px
+        rgba(187, 134, 252, 0.25);
+}
+
+button:active {
+    transform:
+        translateY(0);
+}
+
+button i {
+    transition:
+        transform 0.25s ease;
+}
+
+button:hover i {
+    transform:
+        translateX(4px);
+}
+
+
+/* ========================================
+   PRIVACY TEXT
+======================================== */
+
+.privacy-text {
+    margin: 16px 0 0;
+
+    color: var(--text-secondary);
+
+    font-size: 0.75rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+}
+
+.privacy-text i {
+    color: var(--secondary-color);
+}
+
+
+/* ========================================
+   BENEFITS
+======================================== */
+
+.benefits {
+    margin-top: 28px;
+
+    padding-top: 24px;
+
+    border-top:
+        1px solid
+        var(--border-color);
+
+    display: grid;
+
+    gap: 16px;
+
+    text-align: left;
+}
+
+.benefit-item {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 12px;
+}
+
+.benefit-icon {
+    width: 30px;
+    height: 30px;
+
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 9px;
+
+    background-color:
+        rgba(3, 218, 198, 0.1);
+
+    color:
+        var(--secondary-color);
+
+    font-size: 0.75rem;
+}
+
+.benefit-item div:last-child {
+    display: flex;
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+.benefit-item strong {
+    font-size: 0.86rem;
+
+    color:
+        var(--text-primary);
+}
+
+.benefit-item span {
+    font-size: 0.78rem;
+
+    color:
+        var(--text-secondary);
+}
+
+
+/* ========================================
+   SUCCESS MESSAGE
+======================================== */
+
+.success-message {
+    display: none;
+
+    margin-top: 22px;
+
+    padding: 14px;
+
+    border-radius: 14px;
+
+    background-color:
+        rgba(3, 218, 198, 0.08);
+
+    border:
+        1px solid
+        rgba(3, 218, 198, 0.15);
+
+    text-align: left;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+.success-message.show {
+    display: flex;
+
+    animation:
+        successAppear
+        0.4s
+        ease;
+}
+
+.success-icon {
+    width: 34px;
+    height: 34px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 50%;
+
+    background-color:
+        var(--secondary-color);
+
+    color: #092c29;
+}
+
+.success-message strong,
+.success-message span {
+    display: block;
+}
+
+.success-message strong {
+    font-size: 0.85rem;
+}
+
+.success-message span {
+    color:
+        var(--text-secondary);
+
+    font-size: 0.75rem;
+
+    margin-top: 3px;
+}
+
+
+@keyframes successAppear {
+
+    from {
+        opacity: 0;
+        transform:
+            translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 500px) {
+
+    .page-wrapper {
+        padding:
+            20px
+            15px;
+    }
+
+    .signup-container {
+        padding:
+            32px
+            22px;
+
+        border-radius: 20px;
+    }
+
+    .newsletter-badge {
+        margin-bottom: 18px;
+    }
+
+    .icon-container {
+        width: 66px;
+        height: 66px;
+
+        font-size: 1.7rem;
+    }
+
+    .benefits {
+        margin-top: 22px;
+    }
+
+}
