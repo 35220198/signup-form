@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Newsletter | Stay Inspired</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- BACKGROUND DECORATION -->
+    <div class="background-shape shape-one"></div>
+    <div class="background-shape shape-two"></div>
+
+    <main class="page-wrapper">
+
+        <section class="signup-container">
+
+            <!-- TOP BADGE -->
+            <div class="newsletter-badge">
+                <span class="badge-dot"></span>
+                WEEKLY NEWSLETTER
+            </div>
+
+
+            <!-- ICON -->
+            <div class="icon-container">
+                <div class="icon-glow"></div>
+                <i class="fa-regular fa-envelope-open"></i>
+            </div>
+
+
+            <!-- CONTENT -->
+            <header class="content-header">
+
+                <h1>Stay in the loop.</h1>
+
+                <p>
+                    Get practical coding tips, creative inspiration,
+                    and the latest updates delivered straight to your inbox.
+                </p>
+
+            </header>
+
+
+            <!-- FORM -->
+            <form id="newsletter-form" novalidate>
+
+                <div class="input-group">
+
+                    <i class="fa-regular fa-envelope input-icon"></i>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your email address"
+                        autocomplete="email"
+                        required
+                    >
+
+                    <span class="input-status"></span>
+
+                </div>
+
+                <p class="error-message" id="error-message"></p>
+
+
+                <button type="submit" id="subscribe-btn">
+
+                    <span class="button-text">
+                        Subscribe Now
+                    </span>
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </button>
+
+            </form>
+
+
+            <!-- TRUST TEXT -->
+            <p class="privacy-text">
+                <i class="fa-solid fa-lock"></i>
+                Your inbox is safe with us. No spam, ever.
+            </p>
+
+
+            <!-- BENEFITS -->
+            <div class="benefits">
+
+                <div class="benefit-item">
+
+                    <div class="benefit-icon">
+                        <i class="fa-solid fa-check"></i>
+                    </div>
+
+                    <div>
+                        <strong>Weekly insights</strong>
+                        <span>Fresh coding and creative tips.</span>
+                    </div>
+
+                </div>
+
+
+                <div class="benefit-item">
+
+                    <div class="benefit-icon">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+
+                    <div>
+                        <strong>Useful updates</strong>
+                        <span>Stay ahead of the latest trends.</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- SUCCESS MESSAGE -->
+            <div class="success-message" id="success-message">
+
+                <div class="success-icon">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+
+                <div>
+                    <strong>You're on the list!</strong>
+                    <span>Thanks for subscribing to our newsletter.</span>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
